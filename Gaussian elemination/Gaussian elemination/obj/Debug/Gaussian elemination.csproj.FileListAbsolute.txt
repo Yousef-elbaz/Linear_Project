@@ -1,0 +1,16 @@
+C:\Users\mylap\Desktop\New folder (2)\Gaussian elemination\Gaussian elemination\bin\Debug\Gaussian elemination.exe.config
+C:\Users\mylap\Desktop\New folder (2)\Gaussian elemination\Gaussian elemination\bin\Debug\Gaussian elemination.exe
+C:\Users\mylap\Desktop\New folder (2)\Gaussian elemination\Gaussian elemination\bin\Debug\Gaussian elemination.pdb
+C:\Users\mylap\Desktop\New folder (2)\Gaussian elemination\Gaussian elemination\obj\Debug\Gaussian elemination.csproj.AssemblyReference.cache
+C:\Users\mylap\Desktop\New folder (2)\Gaussian elemination\Gaussian elemination\obj\Debug\Gaussian elemination.csproj.SuggestedBindingRedirects.cache
+C:\Users\mylap\Desktop\New folder (2)\Gaussian elemination\Gaussian elemination\obj\Debug\Gaussian elemination.csproj.CoreCompileInputs.cache
+C:\Users\mylap\Desktop\New folder (2)\Gaussian elemination\Gaussian elemination\obj\Debug\Gaussian elemination.exe
+C:\Users\mylap\Desktop\New folder (2)\Gaussian elemination\Gaussian elemination\obj\Debug\Gaussian elemination.pdb
+C:\Users\mylap\Desktop\gaussian\Gaussian elemination\Gaussian elemination\bin\Debug\Gaussian elemination.exe.config
+C:\Users\mylap\Desktop\gaussian\Gaussian elemination\Gaussian elemination\bin\Debug\Gaussian elemination.exe
+C:\Users\mylap\Desktop\gaussian\Gaussian elemination\Gaussian elemination\bin\Debug\Gaussian elemination.pdb
+C:\Users\mylap\Desktop\gaussian\Gaussian elemination\Gaussian elemination\obj\Debug\Gaussian elemination.csproj.AssemblyReference.cache
+C:\Users\mylap\Desktop\gaussian\Gaussian elemination\Gaussian elemination\obj\Debug\Gaussian elemination.csproj.SuggestedBindingRedirects.cache
+C:\Users\mylap\Desktop\gaussian\Gaussian elemination\Gaussian elemination\obj\Debug\Gaussian elemination.csproj.CoreCompileInputs.cache
+C:\Users\mylap\Desktop\gaussian\Gaussian elemination\Gaussian elemination\obj\Debug\Gaussian elemination.exe
+C:\Users\mylap\Desktop\gaussian\Gaussian elemination\Gaussian elemination\obj\Debug\Gaussian elemination.pdb
