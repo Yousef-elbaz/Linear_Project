@@ -1,7 +1,8 @@
 ﻿using System;
+using System.Net;
+
 class Matrix
 {
-
     private void Welcome()
     {
         //clears console screen 
@@ -185,68 +186,49 @@ class Matrix
             }
         }
     }
-    private void RowOpReduced(double[,] A, double[] b, int s)
-    {
-        Console.ForegroundColor = ConsoleColor.DarkGray;
-        Console.WriteLine(">>>>>>>>>>>>>>>>>>>>This Is Reduced Echlon Form<<<<<<<<<<<<<<<<<<<<<<< \n");
-        Console.ResetColor();
-        // Perform row reduction operations to achieve reduced row-echelon form
-        /*  اقسم الصف اللي فوق علي اول عنصر 
-         *  بالتالي اول قيمة هتبقي ب واحد 
-         * ( وبعد كده اكمل : اللي (تحت) - ( اللي فوق مضروب فاللي تحت 
-            واللي فوق كده كده بواحد
-            فبالتالي القيمه اللي انا فيها هتبقي بصفر 
-           لانه يعتبر بطرحها من نفسها لما بضربها ف واحد */
-
-        for (int p = 0; p < s; p++)
-        {
-            double pivot = A[p, p];
-            for (int col = p; col < s; col++)
-            {
-                A[p, col] /= pivot;
-            }
-            b[p] /= pivot;
-
-            for (int row = 0; row < s; row++)
-            {
-                if (row != p)
-                {
-                    double factor = A[row, p];
-                    for (int col = p; col < s; col++)
-                    {
-                        A[row, col] -= factor * A[p, col];
-                    }
-                    b[row] -= factor * b[p];
-                }
-            }
-            Display(A, b);
-        }
-    }
     private void RowOpGaussian(double[,] A, double[] b, int s)
     {
 
         Console.ForegroundColor = ConsoleColor.DarkGray;
         Console.WriteLine(">>>>>>>>>>>>>>>>>>>>This Is Gaussian Form<<<<<<<<<<<<<<<<<<<<<<< \n");
         Console.ResetColor();
-        for (int p = 0; p < s; p++)
+        if (A[s - 1, s - 1] != 0)
         {
-            // GAUSSUIAN METHOD 
-            for (int row = p + 1; row < s; row++)
+            Console.WriteLine("System is Consistent and have one solution \n ");
+            for (int p = 0; p < s; p++)
             {
-                double m = A[row, p] / A[p, p];
-
-                for (int col = 0; col < s; col++)
+                // GAUSSUIAN METHOD
+                // اخر رقم =! zero   consistent one solution
+                for (int row = p + 1; row < s; row++)
                 {
-                    A[row, col] = A[row, col] - (m * A[p, col]); // Row operation
-                }
+                    double m = A[row, p] / A[p, p];
 
-                b[row] = b[row] - (m * b[p]);
-            }
-            if (p<s-1)
-            {
-                Display(A, b);
+                    for (int col = 0; col < s; col++)
+                    {
+                        A[row, col] = A[row, col] - (m * A[p, col]); // Row operation
+                    }
+
+                    b[row] = b[row] - (m * b[p]);
+                }
+                if (p < s - 1)
+                {
+                    Display(A, b);
+                }
             }
         }
+        else
+        {     //last p=0 then infinte 
+            if (b[s - 1] == 0)
+            {
+                Console.WriteLine("System is Consistent and have infinitly many solutions \n ");
+            }
+            // no solution
+            else
+            {
+                Console.WriteLine("System is Inconsistent and have NO solution \n ");
+            }
+        }
+
     }
     private void Elimination(double[,] A, double[] b, int s)
     {
@@ -273,13 +255,74 @@ class Matrix
             x[row] = b[row];
             temp = 0;
         }
-        Console.ForegroundColor = ConsoleColor.DarkCyan; // Set the text color to Cyan
-        Console.WriteLine("\n<<<<<<<<<<<<<<<<<<<ANSWER>>>>>>>>>>>>>>>>>>>>\n");
-        Console.ForegroundColor = ConsoleColor.Magenta; // Set the text color to Magnetta
-        for (int i = 0; i < s; i++)
+        if (A[s - 1, s - 1] != 0)
         {
-            Console.WriteLine($"\tX[{i}] = {x[i]}");
+            Console.ForegroundColor = ConsoleColor.DarkCyan; // Set the text color to Cyan
+            Console.WriteLine("\n<<<<<<<<<<<<<<<<<<<ANSWER>>>>>>>>>>>>>>>>>>>>\n");
+            Console.ForegroundColor = ConsoleColor.Magenta; // Set the text color to Magnetta
+            for (int i = 0; i < s; i++)
+            {
+                Console.WriteLine($"\tX[{i}] = {x[i]}");
+            }
+            Console.WriteLine("");
         }
-        Console.WriteLine("");
+    }
+    private void RowOpReduced(double[,] A, double[] b, int s)
+    {
+        Console.ForegroundColor = ConsoleColor.DarkGray;
+        Console.WriteLine(">>>>>>>>>>>>>>>>>>>>This Is Reduced Echlon Form<<<<<<<<<<<<<<<<<<<<<<< \n");
+        Console.ResetColor();
+        // Perform row reduction operations to achieve reduced row-echelon form
+        /*  اقسم الصف اللي فوق علي اول عنصر 
+         *  بالتالي اول قيمة هتبقي ب واحد 
+         * ( وبعد كده اكمل : اللي (تحت) - ( اللي فوق مضروب فاللي تحت 
+            واللي فوق كده كده بواحد
+            فبالتالي القيمه اللي انا فيها هتبقي بصفر 
+           لانه يعتبر بطرحها من نفسها لما بضربها ف واحد */
+        int r = s - 1;
+        if (A[s - 1, s - 1] != 0)
+        {
+            Console.WriteLine("System is Consistent and have one solution \n ");
+            for (int p = 0; p < s; p++)
+              {
+                  double pivot = A[p, p];
+                  for (int col = p; col < s; col++)
+                  {
+                      A[p, col] /= pivot;
+                  }
+                  b[p] /= pivot;
+             
+             
+             
+             
+                  for (int row = 0; row < s; row++)
+                  {
+                      if (row != p)
+                      {
+                          double factor = A[row, p];
+                          for (int col = p; col < s; col++)
+                          {
+                              A[row, col] -= factor * A[p, col];
+                          }
+                          b[row] -= factor * b[p];
+                      }
+                  }
+                  Display(A, b);
+              }
+        }
+        else
+        {     //last p=0 then infinte 
+            if (b[s - 1] == 0)
+            {
+                Console.WriteLine("System is Consistent and have infinitly many solutions \n ");
+            }
+            // no solution
+            else
+            {
+                Console.WriteLine("System is Inconsistent and have NO solution \n ");
+            }
+        }
     }
 }
+
+
